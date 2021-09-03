@@ -15,7 +15,7 @@ def parse_sun_time(utc_time, sun_time):
     return sun_utc_time
     
 def get_current_utc_time():
-    Wifi.connect()
+    Wifi.connect() # just to be sure that we are connected to network
     
     response = urequests.get('http://worldtimeapi.org/api/timezone/Europe/Vilnius')
     
@@ -25,7 +25,7 @@ def get_current_utc_time():
     return utc_time
 
 def get_todays_sunset_sunrise_time(utc_time):
-    Wifi.connect()
+    Wifi.connect() # just to be sure that we are connected to network
     
     response = urequests.get(f'https://api.sunrise-sunset.org/json?lat=55.1409&lng=23.7896&date={utc_time[0]}-{utc_time[1]}-{utc_time[2]}')
     sunrise = response.json()['results']['sunrise']

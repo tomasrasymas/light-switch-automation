@@ -32,7 +32,7 @@ class Servo:
         self.pwm.duty(82) # max 122
         
         if to_default:
-            time.sleep(2)
+            time.sleep(0.5)
             self.possition_default()
     
     def possition_off(self, to_default=False):
@@ -43,7 +43,7 @@ class Servo:
         
         self.pwm.duty(58) # min 18
         if to_default:
-            time.sleep(2)
+            time.sleep(0.5)
             self.possition_default()
         
         
