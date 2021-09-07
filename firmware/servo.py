@@ -16,14 +16,14 @@ class Servo:
         self.is_status_on = False
         self.status_led.value(self.is_status_on)
         
-        self.possition_default()
+        self.position_default()
     
-    def possition_default(self):
+    def position_default(self):
         print('Servo - default')
         
         self.pwm.duty(70)
     
-    def possition_on(self, to_default=False):
+    def position_on(self, to_default=False):
         print('Servo - on')
         
         self.is_status_on = True
@@ -33,9 +33,9 @@ class Servo:
         
         if to_default:
             time.sleep(0.5)
-            self.possition_default()
+            self.position_default()
     
-    def possition_off(self, to_default=False):
+    def position_off(self, to_default=False):
         print('Servo - off')
         
         self.is_status_on = False
@@ -44,7 +44,7 @@ class Servo:
         self.pwm.duty(58) # min 18
         if to_default:
             time.sleep(0.5)
-            self.possition_default()
+            self.position_default()
         
         
     

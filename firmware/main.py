@@ -15,9 +15,9 @@ def on_manual_execute_button_rising(pin):
     print(f'Manual execute. Current status {servo_motor.is_status_on} will change to {not servo_motor.is_status_on}')
     
     if servo_motor.is_status_on:
-        servo_motor.possition_off(to_default=True)
+        servo_motor.position_off(to_default=True)
     else:
-        servo_motor.possition_on(to_default=True)
+        servo_motor.position_on(to_default=True)
 
 def execute():
     print('Executing...')
@@ -36,10 +36,10 @@ def execute():
         print('Doing nothing. Lighting is ON, lets keep it!')
     elif sunrise_utc_time_secs - utc_time_secs < 0 and sunset_utc_time_secs - utc_time_secs > 0 and servo_motor.is_status_on:
         print('Switching OFF')
-        servo_motor.possition_off(to_default=True)
+        servo_motor.position_off(to_default=True)
     elif sunrise_utc_time_secs - utc_time_secs < 0 and sunset_utc_time_secs - utc_time_secs < 0 and not servo_motor.is_status_on:
         print('Switching ON')
-        servo_motor.possition_on(to_default=True)
+        servo_motor.position_on(to_default=True)
     
 execute() # execute from beggining not waiting timer to pass
 
