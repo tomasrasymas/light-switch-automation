@@ -32,3 +32,4 @@ def get_todays_sunset_sunrise_time(utc_time):
     sunset = response.json()['results']['sunset']
     
     return parse_sun_time(utc_time, sunrise), parse_sun_time(utc_time, sunset)
+

@@ -1,5 +1,5 @@
 from wifi import Wifi
-import requests
+import time_requests
 import machine
 from servo import Servo
 import time
@@ -22,11 +22,11 @@ def on_manual_execute_button_rising(pin):
 def execute():
     print('Executing...')
     
-    utc_time = requests.get_current_utc_time()
+    utc_time = time_requests.get_current_utc_time()
     utc_time_secs = time.mktime(utc_time)
     print(f'Current UTC time {utc_time}({utc_time_secs})')
 
-    sunrise_utc_time, sunset_utc_time = requests.get_todays_sunset_sunrise_time(utc_time)
+    sunrise_utc_time, sunset_utc_time = time_requests.get_todays_sunset_sunrise_time(utc_time)
     sunrise_utc_time_secs, sunset_utc_time_secs = time.mktime(sunrise_utc_time), time.mktime(sunset_utc_time)
     
     print(f'Todays sunrise and sunset UTC time {sunrise_utc_time}({sunrise_utc_time_secs}) and {sunset_utc_time}({sunset_utc_time_secs})')
